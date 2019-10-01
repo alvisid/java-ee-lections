@@ -1,4 +1,4 @@
-package main.servlet;
+package ru.geekbrains.servlet;
 
 
 import org.slf4j.Logger;
