@@ -1,4 +1,4 @@
 package ru.geekbrains.servlet;
 
-public class order {
+public class Order {
 }

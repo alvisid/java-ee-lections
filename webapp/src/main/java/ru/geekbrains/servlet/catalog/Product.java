@@ -10,8 +10,8 @@ import java.io.IOException;
 import static java.lang.System.out;
 
 @WebServlet(name = "product", urlPatterns = {"/product"})
-public class product implements Servlet {
-    private static Logger logger = LoggerFactory.getLogger(product.class);
+public class Product implements Servlet {
+    private static Logger logger = LoggerFactory.getLogger(Product.class);
 
     private ServletConfig config;
 

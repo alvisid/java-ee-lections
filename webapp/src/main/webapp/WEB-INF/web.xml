@@ -28,5 +28,14 @@
         <url-pattern>/firstservlets/*</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>HeaderFooterFilter</filter-name>
+        <filter-class>ru.geekbrains.servlet.filters.HeaderFooterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HeaderFooterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 
 </web-app>

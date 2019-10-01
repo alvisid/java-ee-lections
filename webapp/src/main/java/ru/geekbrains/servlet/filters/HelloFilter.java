@@ -1,8 +1,10 @@
 package ru.geekbrains.servlet.filters;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
+@WebServlet(name = "HelloFilter", urlPatterns = {"/hellofilter"})
 public class HelloFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

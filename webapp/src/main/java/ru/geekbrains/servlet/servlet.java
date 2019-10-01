@@ -24,6 +24,8 @@ public class servlet extends HttpServlet {
             out.println("<h1>Hello, World</h1>");
             out.println("</body>");
             out.println("</html>");
+            getServletContext().getRequestDispatcher("/index.html").forward(req, res);
+
         }
     }
 

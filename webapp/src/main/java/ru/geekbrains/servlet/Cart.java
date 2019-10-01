@@ -9,8 +9,8 @@ import java.io.IOException;
 
 @WebServlet(name = "Cart", urlPatterns = "/cart")
 
-public class cart implements Servlet {
-    Logger logger = LoggerFactory.getLogger(cart.class);
+public class Cart implements Servlet {
+    Logger logger = LoggerFactory.getLogger(Cart.class);
     private transient ServletConfig config;
 
     @Override
