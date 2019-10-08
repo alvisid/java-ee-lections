@@ -1,4 +1,5 @@
-package ru.geekbrains.servlet.filters;
+/*
+package ru.geekbrains.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -25,3 +26,4 @@ public class HelloFilter implements Filter {
 
     }
 }
+*/

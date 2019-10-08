@@ -1,4 +1,4 @@
-package ru.geekbrains.servlet;
+package ru.geekbrains.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,31 +15,33 @@ import java.sql.SQLException;
 public class ContextListener implements ServletContextListener {
 
     private Logger logger = LoggerFactory.getLogger(ContextListener.class);
-    private ServletContext context;
+//    private ServletContext context;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ServletContext context = sce.getServletContext();
-        logger.info("Context initialization: " + context.getContextPath());
+//        ServletContext context = sce.getServletContext();
+//        logger.info("Context initialization: " + context.getContextPath());
+        logger.info("Initializing application");
 
-        String jdbcConnectionString = context.getInitParameter("jdbcConnectionString");
-        String username = context.getInitParameter("dbUserName");
-        String password = context.getInitParameter("dbPassword");
+        ServletContext sc = sce.getServletContext();
+        String jdbcConnectionString = sc.getInitParameter("jdbcConnectionString");
+        String username = sc.getInitParameter("dbUserName");
+        String password = sc.getInitParameter("dbPassword");
 
-        if (isNotNullOrEmpty(jdbcConnectionString) || isNotNullOrEmpty(username)) {
+/*        if (isNotNullOrEmpty(jdbcConnectionString) || isNotNullOrEmpty(username)) {
             logger.error("Connection string and DB username must be specified");
             return;
-        }
+        }*/
         try {
-            Connection connection = DriverManager.getConnection(jdbcConnectionString, username, password);
-            context.setAttribute("jdbcConnection", connection);
-        } catch (SQLException e) {
-            logger.error("", e);
+            Connection conn = DriverManager.getConnection(jdbcConnectionString, username, password);
+            sc.setAttribute("jdbcConnection", conn);
+        } catch (SQLException ex) {
+            logger.error("", ex);
         }
 
     }
 
-    @Override
+/*    @Override
     public void contextDestroyed(ServletContextEvent sce) {
 //        ServletContext context = sce.getServletContext();
         Connection conn = (Connection) context.getAttribute("jdbcConnection");
@@ -56,5 +58,5 @@ public class ContextListener implements ServletContextListener {
     private boolean isNotNullOrEmpty(String str) {
 
         return str != null && str.isEmpty();
-    }
+    }*/
 }

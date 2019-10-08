@@ -1,4 +1,4 @@
-package ru.geekbrains.servlet.catalog;
+package ru.geekbrains.catalog;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

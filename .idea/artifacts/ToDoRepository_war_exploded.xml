@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ToDoRepository:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/ToDoRepository_war_exploded.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ToDo/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ToDo" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
