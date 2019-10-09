@@ -1,4 +1,4 @@
-package main.java.ru.geekbrains.listener;
+package main.java.ru.geekbrains.listner;
 
 import main.java.ru.geekbrains.persist.ToDo;
 import main.java.ru.geekbrains.persist.ToDoRepository;
@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+@WebListener
 public class ContextListener implements ServletContextListener {
 
     public static final String DB_CONNECTION = "dbConnection";
@@ -32,6 +34,7 @@ public class ContextListener implements ServletContextListener {
         try {
             Connection conn = DriverManager.getConnection(jdbcConnectionString, username, password);
             sc.setAttribute(DB_CONNECTION, conn);
+
             ToDoRepository toDoRepository = new ToDoRepository(conn);
             sc.setAttribute(TODO_REPO, toDoRepository);
 

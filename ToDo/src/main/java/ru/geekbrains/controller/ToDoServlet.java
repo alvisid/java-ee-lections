@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
-import static main.java.ru.geekbrains.listener.ContextListener.TODO_REPO;
+import static main.java.ru.geekbrains.listner.ContextListener.TODO_REPO;
 
 @WebServlet(name = "ToDoServlet", urlPatterns = {"", "/"})
 public class ToDoServlet extends HttpServlet {
@@ -29,7 +29,7 @@ public class ToDoServlet extends HttpServlet {
         this.repository = (ToDoRepository) getServletContext().getAttribute(TODO_REPO);
 
         if (this.repository == null) {
-            throw new ServletException("ToDoRepository is not initialized");
+            throw new ServletException("TodoRepository is not initialized");
         }
     }
 
@@ -83,7 +83,7 @@ public class ToDoServlet extends HttpServlet {
     }
 
     private void showEditTodoPage(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        Long id;
+        long id;
         try {
             id = Long.parseLong(req.getParameter("id"));
         } catch (Exception ex) {
@@ -104,8 +104,8 @@ public class ToDoServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/templates/todo.jsp").forward(req, resp);
     }
 
-    private void deleteTodo(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        Long id;
+    private void deleteTodo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        long id;
         try {
             id = Long.parseLong(req.getParameter("id"));
         } catch (Exception ex) {
@@ -138,7 +138,7 @@ public class ToDoServlet extends HttpServlet {
         }
     }
 
-    private void createTodo(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    private void createTodo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
             repository.insert(new ToDo(
                     -1L,
@@ -154,3 +154,4 @@ public class ToDoServlet extends HttpServlet {
         }
     }
 }
+

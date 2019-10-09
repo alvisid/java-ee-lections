@@ -11,7 +11,6 @@ public class ToDo {
     private LocalDate targetDate;
 
     public ToDo() {
-
     }
 
     public ToDo(Long id, String description, LocalDate targetDate) {

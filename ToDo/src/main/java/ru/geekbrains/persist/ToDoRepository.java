@@ -6,11 +6,12 @@ import java.util.Calendar;
 import java.util.List;
 
 public class ToDoRepository {
+
     private final Connection conn;
 
     public ToDoRepository(Connection conn) throws SQLException {
         this.conn = conn;
-        createTableNotExist(conn);
+        createTableIfNotExists(conn);
     }
 
     public void insert(ToDo toDo) throws SQLException {
@@ -32,7 +33,7 @@ public class ToDoRepository {
         }
     }
 
-    public void delete(Long id) throws SQLException {
+    public void delete(long id) throws SQLException {
         try (PreparedStatement stmt = conn.prepareStatement(
                 "delete from todos where id = ?;")) {
             stmt.setLong(1, id);
@@ -40,7 +41,7 @@ public class ToDoRepository {
         }
     }
 
-    public ToDo findById(Long id) throws SQLException {
+    public ToDo findById(long id) throws SQLException {
         try (PreparedStatement stmt = conn.prepareStatement(
                 "select id, description, targetDate from todos where id = ?")) {
             stmt.setLong(1, id);
@@ -65,12 +66,12 @@ public class ToDoRepository {
         return res;
     }
 
-    private void createTableNotExist(Connection conn) throws SQLException {
+    private void createTableIfNotExists(Connection conn) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.execute("create table if not exist todos (\n" +
+            stmt.execute("create table if not exists todos (\n" +
                     "\tid int auto_increment primary key,\n" +
-                    "   desription varchar(25),\n" +
-                    "   targetDate date \n" +
+                    "    description varchar(25),\n" +
+                    "    targetDate date \n" +
                     ");");
         }
     }
