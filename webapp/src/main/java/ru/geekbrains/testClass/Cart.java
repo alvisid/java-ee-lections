@@ -1,5 +1,4 @@
-package main.servlet;
-
+package ru.geekbrains.testClass;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,13 +7,11 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
-@WebServlet(name = "BasicServlet", urlPatterns = "/basic_servlet")
-public class BasicServlet implements Servlet {
+@WebServlet(name = "Cart", urlPatterns = "/cart")
 
-    private static Logger logger = LoggerFactory.getLogger(BasicServlet.class);
-
+public class Cart implements Servlet {
+    Logger logger = LoggerFactory.getLogger(Cart.class);
     private transient ServletConfig config;
-
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -23,23 +20,21 @@ public class BasicServlet implements Servlet {
 
     @Override
     public ServletConfig getServletConfig() {
-        return config;
+        return null;
     }
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        logger.info("New request");
-        res.getWriter().println("<h1>Servlet content</h1>");
+        res.getWriter().println("<h1>Cart page</h1>");
     }
 
     @Override
     public String getServletInfo() {
-        return "BasicServlet";
+        return null;
     }
 
     @Override
     public void destroy() {
-        logger.info("Servlet {} destroyed", getServletInfo());
 
     }
 }
