@@ -17,6 +17,7 @@ import java.time.format.DateTimeParseException;
 
 import static main.java.ru.geekbrains.listner.ContextListener.TODO_REPO;
 
+
 @WebServlet(name = "ToDoServlet", urlPatterns = {"", "/"})
 public class ToDoServlet extends HttpServlet {
 
@@ -56,9 +57,9 @@ public class ToDoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("Date {}", req.getParameter("targetDate"));
 
-        if (req.getPathInfo() != null && req.getPathInfo().equals("/update")) {
+        if (req.getServletPath() != null && req.getPathInfo().equals("/update")) {
             updateTodo(req, resp);
-        } else if (req.getPathInfo() != null && req.getPathInfo().equals("/create")) {
+        } else if (req.getServletPath() != null && req.getPathInfo().equals("/create")) {
             createTodo(req, resp);
         } else {
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -73,6 +74,7 @@ public class ToDoServlet extends HttpServlet {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return;
         }
+
         getServletContext().getRequestDispatcher("/WEB-INF/templates/index.jsp").forward(req, resp);
     }
 
@@ -128,7 +130,7 @@ public class ToDoServlet extends HttpServlet {
                     Long.parseLong(req.getParameter("id")),
                     req.getParameter("description"),
                     LocalDate.parse(req.getParameter("targetDate"))));
-            resp.sendRedirect(getServletContext().getContextPath() + "/todos");
+            resp.sendRedirect(getServletContext().getContextPath());
         } catch (SQLException ex) {
             logger.error("", ex);
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -144,7 +146,7 @@ public class ToDoServlet extends HttpServlet {
                     -1L,
                     req.getParameter("description"),
                     LocalDate.parse(req.getParameter("targetDate"))));
-            resp.sendRedirect(getServletContext().getContextPath() + "/todos");
+            resp.sendRedirect(getServletContext().getContextPath());
         } catch (SQLException ex) {
             logger.error("", ex);
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
