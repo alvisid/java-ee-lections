@@ -22,6 +22,8 @@
     </build>
     <modules>
         <module>webapp</module>
+        <module>jsplesson</module>
+        <module>todo-jsf</module>
     </modules>
     <dependencies>
         <dependency>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java-ee-lections.iml" filepath="$PROJECT_DIR$/java-ee-lections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsplesson/jsplesson.iml" filepath="$PROJECT_DIR$/jsplesson/jsplesson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/todo-jsf/todo-jsf.iml" filepath="$PROJECT_DIR$/todo-jsf/todo-jsf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapp/webapp.iml" filepath="$PROJECT_DIR$/webapp/webapp.iml" />
+    </modules>
+  </component>
+</project>

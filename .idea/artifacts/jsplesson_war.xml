@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jsplesson:war">
+    <output-path>$PROJECT_DIR$/jsplesson/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jsplesson</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jsplesson.war">
+      <element id="artifact" artifact-name="jsplesson:war exploded" />
+    </root>
+  </artifact>
+</component>
