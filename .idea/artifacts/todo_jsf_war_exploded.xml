@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="webapp:war exploded">
-    <output-path>$PROJECT_DIR$/webapp/target/todo</output-path>
+  <artifact type="exploded-war" name="todo-jsf:war exploded">
+    <output-path>$PROJECT_DIR$/todo-jsf/target/todo-jsf</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>webapp</module>
+        <module>todo-jsf</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="webapp" />
+          <element id="module-output" name="todo-jsf" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.16" />
@@ -19,9 +19,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/webapp/target/todo/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/todo-jsf/target/todo-jsf/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="webapp/web/Web" />
+      <element id="javaee-facet-resources" facet="todo-jsf/web/Web" />
     </root>
   </artifact>
 </component>

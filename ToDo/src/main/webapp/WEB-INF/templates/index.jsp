@@ -25,6 +25,10 @@
                     <th scope="col">Target date</th>
                     <th scope="col">Actions</th>
                 </tr>
+
+                <%--                <title>JSP Page</title>--%>
+
+
                 </thead>
                 <tbody>
                 <c:forEach var="todo" items="${requestScope.todos}">
@@ -55,6 +59,17 @@
                     </tr>
                     <%-- } --%>
                 </c:forEach>
+
+                <%--                <%@include file="menu.jsp"%>--%>
+                <%--
+                                <h1>Это главная страница нашего приложения</h1>
+                                <div><strong>ID session:</strong> <%=session.getId()%></div>
+                                &lt;%&ndash;Создание атрибута сессии&ndash;%&gt;
+                                <%
+                                    session.setAttribute("hello", "Привет");
+                                %>
+                --%>
+
                 </tbody>
             </table>
         </div>

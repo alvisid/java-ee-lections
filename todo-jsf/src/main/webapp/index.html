@@ -1,0 +1,93 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+>
+
+<h:head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet"/>
+    <title>ToDo list application</title>
+</h:head>
+
+<h:body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ToDo</a>
+
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"/>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h:form id="todosForm">
+            <div class="row py-2">
+                <div class="col-12">
+                    <h:commandButton action="#{todoBean.createTodo()}" styleClass="btn btn-primary" value="Add Todo"/>
+                </div>
+
+                <div class="col-12">
+                    <h:dataTable styleClass="table table-bordered my-2" value="#{todoBean.allTodo}"
+                                 var="todo">
+
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            #{todo.id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Description</f:facet>
+                            #{todo.description}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Target date</f:facet>
+                            #{todo.targetDate}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Actions</f:facet>
+                            <h:commandButton action="#{todoBean.editTodo(todo)}" styleClass="btn btn-success"
+                                             value="Edit"/>
+                            <h:commandButton action="#{todoBean.deleteTodo(todo)}" styleClass="btn btn-danger"
+                                             value="Delete">
+                                <f:ajax event="click" render="todosForm"/>
+                            </h:commandButton>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</h:body>
+</html>
